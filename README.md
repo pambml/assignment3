@@ -1,33 +1,26 @@
-## Put comments here that give an overall description of what your
-## functions do
 
-## Write a short comment describing this function
+Matrix inversion is usually a costly computation and there may be some benefit to caching the inverse of a matrix rather than compute it repeatedly (there are also alternatives to matrix inversion that we will not discuss here). Your assignment is to write a pair of functions that cache the inverse of a matrix.
 
-makeCacheMatrix <- function(x = matrix()) {
-        inv <- NULL
-  set <- function(y){
-    x <<- y
-    inv <<- NULL
-  }
-  get <- function() x
-  setInverse <- function(solveMatrix) inv <<- solveMatrix
-  getInverse <- function() inv
-  list(set = set, get = get, setInverse = setInverse, getInverse = getInverse)
+Write the following functions:
 
-}
+makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse.
 
+cacheSolve: This function computes the inverse of the special "matrix" returned by makeCacheMatrix above. If the inverse has already been calculated (and the matrix has not changed), then the cachesolve should retrieve the inverse from the cache.
 
-## Write a short comment describing this function
+Computing the inverse of a square matrix can be done with the solve function in R. For example, if X is a square invertible matrix, then solve(X) returns its inverse.
 
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-        inv <- x$getInverse()
-  if(!is.null(inv)){
-    message("getting cached data")
-    return(inv)
-  }
-  data <- x$get()
-  inv <- solve(data)
-  x$setInverse(inv)
-  inv      
-}
+For this assignment, assume that the matrix supplied is always invertible.
+
+In order to complete this assignment, you must do the following:
+
+Fork the GitHub repository containing the stub R files at 
+https://github.com/rdpeng/ProgrammingAssignment2
+ to create a copy under your own account.
+
+Clone your forked GitHub repository to your computer so that you can edit the files locally on your own machine.
+
+Edit the R file contained in the git repository and place your solution in that file (please do not rename the file).
+
+Commit your completed R file into YOUR git repository and push your git branch to the GitHub repository under your account.
+
+Submit to Coursera the URL to your GitHub repository that contains the completed R code for the assignment.
